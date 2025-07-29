@@ -1,0 +1,167 @@
+/* Footer Styles */
+.footer {
+  background-color: #1a1a2e;
+  color: #ffffff;
+  padding: 60px 0 30px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #3a86ff;
+  margin-bottom: 15px;
+}
+
+.fayda-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(58, 134, 255, 0.1);
+  padding: 8px 12px;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.fayda-logo {
+  height: 24px;
+  width: auto;
+}
+
+.fayda-badge span {
+  font-size: 14px;
+  color: #3a86ff;
+  font-weight: 500;
+}
+
+.footer-text {
+  color: #a0aec0;
+  line-height: 1.6;
+  max-width: 250px;
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-link {
+  color: #a0aec0;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 15px;
+}
+
+.footer-link:hover {
+  color: #3a86ff;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 1px solid #2d3748;
+  padding-top: 30px;
+  text-align: center;
+  color: #a0aec0;
+  font-size: 14px;
+}
+
+.government-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.government-logo {
+  height: 28px;
+  width: auto;
+  filter: grayscale(100%) brightness(2);
+}
+
+.government-badge span {
+  font-size: 13px;
+  color: #a0aec0;
+  font-weight: 500;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .footer {
+    padding: 40px 0 20px;
+  }
+
+  .fayda-badge {
+    padding: 6px 10px;
+  }
+
+  .fayda-badge span {
+    font-size: 13px;
+  }
+
+  .government-badge {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-col {
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-text {
+    max-width: 100%;
+  }
+
+  .fayda-badge {
+    margin: 0 auto;
+  }
+}

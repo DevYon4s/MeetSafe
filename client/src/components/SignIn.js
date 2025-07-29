@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const SignIn = () => {
   const generateSignInUrl = () => {
     const params = new URLSearchParams({
@@ -63,6 +64,7 @@ const SignIn = () => {
             }
             onBlur={(e) => (e.target.style = styles.input)}
           />
+          <Link to="/terms">PrivacyPolicy</Link>
           <button
             type="submit"
             style={styles.btn}

@@ -7,6 +7,8 @@ import Home from "./components/Home";
 import Features from "./components/Features";
 import Meetups from "./components/Meetups";
 import Navbar from "./components/Navbar";
+import TermsandServices from "./components/TermsandServices";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
@@ -18,7 +20,9 @@ const App = () => {
         <Route path="/callback" element={<Callback />} />
         <Route path="/features" element={<Features />} />
         <Route path="/meetups" element={<Meetups />} />
+        <Route path="/terms" element={<TermsandServices />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

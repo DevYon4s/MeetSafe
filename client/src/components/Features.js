@@ -178,12 +178,7 @@ const Features = () => {
         </div>
       </section>
 
-      {/* Footer (same as Home) */}
-      <footer className="footer">
-        <div className="footer-container">
-          {/* ... (same footer content as Home) ... */}
-        </div>
-      </footer>
+    
     </div>
   );
 };
