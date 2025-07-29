@@ -137,6 +137,14 @@ To run MeetSafe on your local machine, follow these steps:
    Once the containers are up and running, you can access the application in your web browser, typically at:  
    `http://localhost:3000`
 
+### Test Credentials
+
+Use the following values for testing during login:
+
+- **Test FIN/FAN 1:** `3126894653473958`
+- **Test FIN/FAN 2:** `6230247319356120`
+- **OTP:** `111111`
+
 5. **Stopping the Application**  
    To stop the running Docker containers, press `Ctrl+C` in the terminal where `docker-compose up` is running. To remove the containers and networks, use:
 
