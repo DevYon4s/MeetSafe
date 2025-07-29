@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './CreateEventForm.css';
 
-const CreateEventForm = ({ onEventCreated }) => {
-  const navigate = useNavigate();
+const CreateEventForm = ({ onEventCreated, onCancel }) => {
   const [formData, setFormData] = useState({
     name: '',
     description: '',
@@ -39,16 +37,14 @@ const CreateEventForm = ({ onEventCreated }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newEvent = {
-      id: Date.now(), // Temporary ID
       ...formData,
       maxParticipants: parseInt(formData.maxParticipants)
     };
     onEventCreated(newEvent);
-    navigate('/events');
   };
 
   return (
-    <div className="create-event-container">
+    <div className="create-event-form">
       <h2>Create New Event</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -119,7 +115,7 @@ const CreateEventForm = ({ onEventCreated }) => {
         <div className="form-actions">
           <button 
             type="button" 
-            onClick={() => navigate('/events')}
+            onClick={onCancel}
             className="cancel-button"
           >
             Cancel

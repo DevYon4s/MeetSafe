@@ -1,14 +1,8 @@
-.create-event-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 2rem;
-  background: white;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(106, 81, 255, 0.15);
-  border: 1px solid #e0d6ff;
+.create-event-form {
+  width: 100%;
 }
 
-.create-event-container h2 {
+.create-event-form h2 {
   color: #3a3a72;
   text-align: center;
   margin-bottom: 1.5rem;

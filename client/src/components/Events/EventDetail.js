@@ -13,7 +13,7 @@ const EventDetail = () => {
     description: 'Fun volleyball game at the beach, all skill levels welcome!',
     place: 'Santa Monica Beach, CA',
     maxParticipants: 12,
-    image: 'https://images.unsplash.com/photo-1543357480-c60d400e2ef9?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
+    image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
   };
 
   return (
