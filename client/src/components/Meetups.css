@@ -1,0 +1,379 @@
+/* Base Styles */
+.meetups-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Navigation (same as Home) */
+.navbar {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ... (include all nav styles from Home.css) ... */
+
+.nav-link.active {
+  color: #2667cc;
+  font-weight: 600;
+}
+
+/* Main Content */
+.meetups-main {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.meetups-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.meetups-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.meetups-header p {
+  color: #4b5563;
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-meetup-btn {
+  background-color: #2667cc;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.create-meetup-btn:hover {
+  background-color: #4338ca;
+}
+
+.create-meetup-btn svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  stroke-width: 2;
+}
+
+/* Meetup Tabs */
+.meetups-tabs {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6b7280;
+  position: relative;
+}
+
+.tab-btn.active {
+  color: #2667cc;
+}
+
+.tab-btn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #2667cc;
+}
+
+/* Meetups List */
+.meetups-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.meetup-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.meetup-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.meetup-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.meetup-card-header h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.interest-badge {
+  background-color: #e0e7ff;
+  color: #2667cc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.meetup-card-details {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+}
+
+.detail-item svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #6b7280;
+}
+
+.attendees {
+  margin-top: 0.5rem;
+}
+
+.attendees-count {
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 0.25rem;
+}
+
+.progress-bar {
+  height: 0.5rem;
+  background-color: #e5e7eb;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #2667cc;
+  border-radius: 0.25rem;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #f59e0b;
+}
+
+.rating svg {
+  height: 1.25rem;
+  width: 1.25rem;
+  fill: currentColor;
+}
+
+.view-details-btn {
+  width: 100%;
+  background-color: #2667cc;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.view-details-btn:hover {
+  background-color: #4338ca;
+}
+
+/* Meetup Detail Modal */
+.meetup-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+
+.modal-content {
+  background-color: white;
+  border-radius: 0.5rem;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+}
+
+.close-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.close-modal svg {
+  height: 1.5rem;
+  width: 1.5rem;
+  stroke-width: 2;
+}
+
+.modal-header {
+  margin-bottom: 1.5rem;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.modal-details {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.detail-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.detail-row svg {
+  flex-shrink: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.detail-row.full-width {
+  align-items: flex-start;
+}
+
+.detail-row h4 {
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.25rem;
+}
+
+.detail-row p {
+  color: #4b5563;
+}
+
+.attendees-modal {
+  width: 100%;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.join-btn,
+.rate-btn {
+  flex: 1;
+  background-color: #2667cc;
+  color: white;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.join-btn:hover,
+.rate-btn:hover {
+  background-color: #4338ca;
+}
+
+.message-btn {
+  flex: 1;
+  border: 1px solid #2667cc;
+  color: #2667cc;
+  padding: 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.message-btn:hover {
+  background-color: #eef2ff;
+}
+
+/* Footer (same as Home) */
+.footer {
+  background-color: #1f2937;
+  color: white;
+  padding: 3rem 0;
+}
+
+/* ... (include all footer styles from Home.css) ... */
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .meetups-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .modal-actions {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) {
+  .meetups-header h1 {
+    font-size: 3rem;
+  }
+
+  .meetup-card-header {
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) {
+  .meetups-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .meetups-main {
+    padding: 3rem 1rem;
+  }
+}
