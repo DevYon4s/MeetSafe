@@ -1,5 +1,3 @@
-import React from "react";
-import { Link } from "react-router-dom";
 const SignIn = () => {
   const generateSignInUrl = () => {
     const params = new URLSearchParams({
@@ -27,80 +25,25 @@ const SignIn = () => {
   return (
     <div style={styles.body}>
       <div style={styles.container}>
-        <h1 style={styles.heading}>
-          Welcome to Fayda Mock Relying Party Portal
-        </h1>
-        <form action="/login" method="POST">
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            required
-            style={styles.input}
-            onFocus={(e) =>
-              (e.target.style = { ...styles.input, ...styles.inputFocus })
-            }
-            onBlur={(e) => (e.target.style = styles.input)}
+        <h1 style={styles.heading}>Welcome to MeetSafe</h1>
+        <a href={generateSignInUrl()} style={styles.imageLink}>
+          <img
+            src="/national-id-logo.png"
+            alt="Fayda E-Signet Logo"
+            style={styles.faydaLogo}
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            required
-            style={styles.input}
-            onFocus={(e) =>
-              (e.target.style = { ...styles.input, ...styles.inputFocus })
-            }
-            onBlur={(e) => (e.target.style = styles.input)}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            required
-            style={styles.input}
-            onFocus={(e) =>
-              (e.target.style = { ...styles.input, ...styles.inputFocus })
-            }
-            onBlur={(e) => (e.target.style = styles.input)}
-          />
-          <Link to="/terms">PrivacyPolicy</Link>
-          <button
-            type="submit"
-            style={styles.btn}
-            onMouseEnter={(e) =>
-              (e.target.style = { ...styles.btn, ...styles.btnHover })
-            }
-            onMouseLeave={(e) => (e.target.style = styles.btn)}
-          >
-            Sign In
-          </button>
-        </form>
-        <div style={styles.separator}>
-          <span
-            style={styles.separatorLine}
-            className="separator-line-left"
-          ></span>
-          <span>or</span>
-          <span
-            style={styles.separatorLine}
-            className="separator-line-right"
-          ></span>
-        </div>
-        <a
-          href={generateSignInUrl()}
-          style={styles.link}
+        </a>
+        <button
+          onClick={() => (window.location.href = generateSignInUrl())}
+          style={styles.btn}
           onMouseEnter={(e) =>
-            (e.target.style = { ...styles.link, ...styles.linkHover })
+            (e.target.style = { ...styles.btn, ...styles.btnHover })
           }
-          onMouseLeave={(e) => (e.target.style = styles.link)}
+          onMouseLeave={(e) => (e.target.style = styles.btn)}
         >
           Sign in with Fayda E-Signet
-        </a>
+        </button>
       </div>
-      <footer style={styles.footer}>
-        &copy; 2025 National ID. All Rights Reserved.
-      </footer>
     </div>
   );
 };
@@ -110,7 +53,7 @@ const styles = {
     margin: 0,
     padding: 0,
     fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
-    backgroundColor: "#f5f7fa",
+    backgroundColor: "white",
     color: "#2d3748",
     display: "flex",
     justifyContent: "center",
@@ -210,6 +153,15 @@ const styles = {
     fontSize: "14px",
     textAlign: "center",
     padding: "20px",
+  },
+  faydaLogo: {
+    width: "150px", // Adjust size as needed
+    marginBottom: "20px",
+    cursor: "pointer",
+  },
+  imageLink: {
+    display: "block",
+    marginBottom: "20px",
   },
 };
 
