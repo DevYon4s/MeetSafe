@@ -1,4 +1,3 @@
-
 services:
   client:
     build:
@@ -26,6 +25,9 @@ services:
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=meetsafe
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./users.sql:/docker-entrypoint-initdb.d/init.sql
 
   pgadmin:
     image: dpage/pgadmin4
@@ -36,3 +38,6 @@ services:
       - PGADMIN_DEFAULT_PASSWORD=admin
     depends_on:
       - postgres
+
+volumes:
+  postgres_data:
