@@ -96,12 +96,11 @@ Fayda is critical to ensuring the safety, authenticity, and accountability of us
 - React (with axios & dotenv)
 - Tailwind CSS (for styling)
 - headlessui (for accessible UI components) [headlessui.com](https://headlessui.com/)
-- TypeScript (for type safety)
+
 
 ### Backend
 
 - Express (Node.js) + axios
-- TypeScript (for type safety)
 - PostgreSQL (user/event storage)
 - Prisma ORM (database interaction)
 - OIDC with signed JWT client assertion (Auth Method)
