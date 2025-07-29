@@ -1,6 +1,4 @@
-import React from "react";
 import "./Feature.css";
-import Navbar from "./Navbar"; // Assuming you have a Navbar component
 import { Link } from "react-router-dom";
 
 const Features = () => {
@@ -168,17 +166,14 @@ const Features = () => {
           </p>
           <div className="cta-buttons">
             <button className="primary-btn">
-              <Link to="/meetups" className="primary-link">
+              <Link to="/signIn" className="primary-link">
                 {" "}
                 Get Started
               </Link>
             </button>
-            <button className="secondary-btn">Learn More</button>
           </div>
         </div>
       </section>
-
-    
     </div>
   );
 };

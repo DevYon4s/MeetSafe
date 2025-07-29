@@ -1,7 +1,7 @@
 /* Footer Styles */
 .footer {
-  background-color: #1a1a2e;
-  color: #ffffff;
+  background-color: #ffffff;
+  color: #000000;
   padding: 60px 0 30px;
   margin-top: 60px;
 }
@@ -68,12 +68,13 @@
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .footer-links {
   list-style: none;
   padding: 0;
+  color: #000000;
   margin: 0;
 }
 

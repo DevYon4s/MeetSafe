@@ -75,7 +75,6 @@
 
 .feature-card {
   background-color: #f9fafb;
-  border-radius: 0.5rem;
   padding: 2rem;
   transition: transform 0.3s, box-shadow 0.3s;
 }
@@ -150,7 +149,7 @@
 
 .step-card {
   background-color: white;
-  border-radius: 0.5rem;
+
   padding: 2rem;
   position: relative;
   border-left: 4px solid #2667cc;

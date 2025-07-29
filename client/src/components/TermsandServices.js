@@ -1,12 +1,12 @@
 import React from "react";
 import "./TermsAndServices.css"; // Assuming you have a CSS file for styling
-import { Link } from "react-router-dom";
+
 const PrivacyPolicy = () => {
   return (
     <div className="privacy-container">
       <div className="privacy-content">
         <h1 className="privacy-heading">Privacy Policy</h1>
-        <p className="privacy-update">Last Updated: [Date]</p>
+        <p className="privacy-update">Last Updated: 7/30/2025</p>
 
         <div className="privacy-section">
           <h2>1. Information Collection</h2>
