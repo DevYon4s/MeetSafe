@@ -6,8 +6,10 @@ const SignIn = () => {
       redirect_uri: process.env.REACT_APP_REDIRECT_URI,
       response_type: "code",
       scope: "openid profile email",
-      acr_values: "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
-      claims: '{"userinfo":{"name":{"essential":true},"phone":{"essential":true},"email":{"essential":true},"picture":{"essential":true},"gender":{"essential":true},"birthdate":{"essential":true},"address":{"essential":true}},"id_token":{}}',
+      acr_values:
+        "mosip:idp:acr:generated-code mosip:idp:acr:linked-wallet mosip:idp:acr:biometrics",
+      claims:
+        '{"userinfo":{"name":{"essential":true},"phone":{"essential":true},"email":{"essential":true},"picture":{"essential":true},"gender":{"essential":true},"birthdate":{"essential":true},"address":{"essential":true}},"id_token":{}}',
       code_challenge: "E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM",
       code_challenge_method: "S256",
       display: "page",
@@ -16,20 +18,24 @@ const SignIn = () => {
       ui_locales: "en",
     });
 
-    return `${process.env.REACT_APP_AUTHORIZATION_ENDPOINT}?${params.toString()}`;
+    return `${
+      process.env.REACT_APP_AUTHORIZATION_ENDPOINT
+    }?${params.toString()}`;
   };
 
   return (
     <div style={styles.body}>
       <div style={styles.container}>
-        <h1 style={styles.heading}>Welcome to Fayda Mock Relying Party Portal</h1>
-        <form action="/login" method="POST">
+        <h1 style={styles.heading}>
+          Welcome to Fayda Mock Relying Party Portal
+        </h1>
+        {/* <form action="/login" method="POST">
           <input type="text" name="username" placeholder="Username" required style={styles.input} />
           <input type="email" name="email" placeholder="Email" required style={styles.input} />
           <input type="password" name="password" placeholder="Password" required style={styles.input} />
           <button type="submit" style={styles.btn}>Sign In</button>
-        </form>
-        <p>or</p>
+        </form> */}
+        {/* <p>or</p> */}
         {/* Updated link to use the dynamically generated URL */}
         <a href={generateSignInUrl()} style={styles.link}>
           Sign in with Fayda E-Signet

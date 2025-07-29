@@ -7,7 +7,7 @@ MeetSafe
 ## Contributors
 
 - Yonas Belew
-- Hana Melese
+- Mahlet Belay
 - Meaza Mulatu
 
 ---
@@ -96,7 +96,6 @@ Fayda is critical to ensuring the safety, authenticity, and accountability of us
 - React (with axios & dotenv)
 - Tailwind CSS (for styling)
 - headlessui (for accessible UI components) [headlessui.com](https://headlessui.com/)
-
 
 ### Backend
 
