@@ -1,4 +1,3 @@
-import React from "react";
 const SignIn = () => {
   const generateSignInUrl = () => {
     const params = new URLSearchParams({
@@ -26,24 +25,25 @@ const SignIn = () => {
   return (
     <div style={styles.body}>
       <div style={styles.container}>
-        <h1 style={styles.heading}>
-          Welcome to Fayda Mock Relying Party Portal
-        </h1>
-        {/* <form action="/login" method="POST">
-          <input type="text" name="username" placeholder="Username" required style={styles.input} />
-          <input type="email" name="email" placeholder="Email" required style={styles.input} />
-          <input type="password" name="password" placeholder="Password" required style={styles.input} />
-          <button type="submit" style={styles.btn}>Sign In</button>
-        </form> */}
-        {/* <p>or</p> */}
-        {/* Updated link to use the dynamically generated URL */}
-        <a href={generateSignInUrl()} style={styles.link}>
-          Sign in with Fayda E-Signet
+        <h1 style={styles.heading}>Welcome to MeetSafe</h1>
+        <a href={generateSignInUrl()} style={styles.imageLink}>
+          <img
+            src="/national-id-logo.png"
+            alt="Fayda E-Signet Logo"
+            style={styles.faydaLogo}
+          />
         </a>
+        <button
+          onClick={() => (window.location.href = generateSignInUrl())}
+          style={styles.btn}
+          onMouseEnter={(e) =>
+            (e.target.style = { ...styles.btn, ...styles.btnHover })
+          }
+          onMouseLeave={(e) => (e.target.style = styles.btn)}
+        >
+          Sign in with Fayda E-Signet
+        </button>
       </div>
-      <footer style={styles.footer}>
-        &copy; 2025 National ID. All Rights Reserved.
-      </footer>
     </div>
   );
 };
@@ -52,61 +52,116 @@ const styles = {
   body: {
     margin: 0,
     padding: 0,
-    fontFamily: "Arial, sans-serif",
-    backgroundColor: "#1a1a2e",
-    color: "white",
+    fontFamily: "'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
+    backgroundColor: "white",
+    color: "#2d3748",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    height: "100vh",
+    minHeight: "100vh",
     flexDirection: "column",
+    backgroundImage: "linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%)",
   },
   container: {
-    backgroundColor: "#162447",
-    borderRadius: "12px",
+    backgroundColor: "white",
+    borderRadius: "16px",
     padding: "40px",
-    boxShadow: "0 10px 30px rgba(0, 0, 0, 0.2)",
+    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.08)",
     textAlign: "center",
-    maxWidth: "400px",
-    width: "100%",
+    maxWidth: "450px",
+    width: "90%",
+    margin: "20px 0",
   },
   heading: {
-    marginBottom: "20px",
-    color: "#f8c94e",
+    marginBottom: "24px",
+    color: "#3a86ff",
+    fontSize: "24px",
+    fontWeight: "600",
   },
   input: {
     width: "100%",
-    padding: "12px",
-    margin: "10px 0",
+    padding: "14px 16px",
+    margin: "12px 0",
     borderRadius: "8px",
-    border: "1px solid #f8c94e",
-    backgroundColor: "#0f3460",
-    color: "white",
+    border: "1px solid #e2e8f0",
+    backgroundColor: "#f8fafc",
+    color: "#2d3748",
+    fontSize: "16px",
+    transition: "border-color 0.2s, box-shadow 0.2s",
+    outline: "none",
+    boxSizing: "border-box",
+  },
+  inputFocus: {
+    borderColor: "#3a86ff",
+    boxShadow: "0 0 0 3px rgba(58, 134, 255, 0.2)",
   },
   btn: {
-    backgroundColor: "#f8c94e",
-    color: "#1a1a2e",
-    padding: "12px",
+    backgroundColor: "#3a86ff",
+    color: "white",
+    padding: "14px",
     width: "100%",
     border: "none",
     borderRadius: "8px",
-    marginTop: "20px",
+    marginTop: "24px",
     cursor: "pointer",
     fontSize: "16px",
-    fontWeight: "bold",
+    fontWeight: "600",
+    transition: "background-color 0.2s, transform 0.1s",
+    boxShadow: "0 2px 5px rgba(58, 134, 255, 0.3)",
+  },
+  btnHover: {
+    backgroundColor: "#2667cc",
+    transform: "translateY(-1px)",
+  },
+  separator: {
+    margin: "20px 0",
+    color: "#a0aec0",
+    fontSize: "14px",
+    position: "relative",
+  },
+  separatorLine: {
+    position: "absolute",
+    top: "50%",
+    width: "40%",
+    height: "1px",
+    backgroundColor: "#e2e8f0",
+  },
+  separatorLineLeft: {
+    left: 0,
+  },
+  separatorLineRight: {
+    right: 0,
   },
   link: {
-    color: "#f8c94e",
+    color: "#3a86ff",
     textDecoration: "none",
-    fontSize: "14px",
-    marginTop: "15px",
+    fontSize: "15px",
+    marginTop: "16px",
     display: "inline-block",
+    fontWeight: "500",
+    transition: "color 0.2s",
+    padding: "8px 12px",
+    borderRadius: "6px",
+  },
+  linkHover: {
+    color: "#2667cc",
+    backgroundColor: "rgba(58, 134, 255, 0.1)",
   },
   footer: {
-    position: "absolute",
-    bottom: "10px",
-    color: "white",
-    fontSize: "12px",
+    marginTop: "40px",
+    color: "#718096",
+    fontSize: "14px",
+    textAlign: "center",
+    padding: "20px",
+  },
+  faydaLogo: {
+    width: "150px", // Adjust size as needed
+    marginBottom: "20px",
+    cursor: "pointer",
+  },
+  imageLink: {
+    display: "block",
+    marginBottom: "20px",
   },
 };
 

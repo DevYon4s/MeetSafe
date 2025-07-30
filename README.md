@@ -94,12 +94,68 @@ Fayda is critical to ensuring the safety, authenticity, and accountability of us
 ### Frontend
 
 - React (with axios & dotenv)
-- Tailwind CSS (for styling)
-- headlessui (for accessible UI components) [headlessui.com](https://headlessui.com/)
 
 ### Backend
 
 - Express (Node.js) + axios
 - PostgreSQL (user/event storage)
-- Prisma ORM (database interaction)
 - OIDC with signed JWT client assertion (Auth Method)
+
+---
+
+## Installation and Deployment
+
+### Running the App Locally with Docker
+
+To run MeetSafe on your local machine, follow these steps:
+
+1. **Ensure Docker is Installed**  
+   Make sure you have Docker and Docker Compose installed on your system. You can download them from the official Docker website.
+
+2. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/DevYon4s/MeetSafe.git
+   cd MeetSafe
+   ```
+
+3. **Build and Run with Docker Compose**  
+   From the root directory of the project (`MeetSafe`), run:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   This command will:
+
+   - Build the Docker images for both the client and server
+   - Create and start the containers defined in `docker-compose.yaml`
+   - Set up the PostgreSQL database container and initialize it with the necessary schema
+   - Set up the necessary network configurations
+
+4. **Access the Application**  
+   Once the containers are up and running, you can access the application in your web browser, typically at:  
+   `http://localhost:3000`
+
+### Test Credentials
+
+Use the following values for testing during login:
+
+- **Test FIN/FAN 1:** `3126894653473958`
+- **Test FIN/FAN 2:** `6230247319356120`
+- **OTP:** `111111`
+
+## 🚧 Issues We Faced
+
+We encountered invalid assertion issues on Monday and Tuesday nights, particularly after midnight. Despite using all the credentials provided in the group, we received the error shown in the attached image. As a result, we were unable to implement some features that require the user to be logged in.
+
+You can visit [http://localhost:3000/meetups](http://localhost:3000/meetups) to see what we were building and to view the event side of the product.
+![alt text](image.png)
+We tried logging in with both the FANs provided in the group and our personal FAN numbers, but we continued to encounter the same error.
+
+5. **Stopping the Application**  
+   To stop the running Docker containers, press `Ctrl+C` in the terminal where `docker-compose up` is running. To remove the containers and networks, use:
+
+   ```bash
+   docker-compose down
+   ```

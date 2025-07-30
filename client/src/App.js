@@ -1,22 +1,28 @@
 // src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import SignIn from './components/SignIn';
-// import Callback from './components/Callback';
-// import Welcome from './components/Welcome';
-import EventsList from './components/Events/EventsList';
-import EventDetail from './components/Events/EventDetail';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SignIn from "./components/SignIn";
+import Callback from "./components/Callback";
+import Home from "./components/Home";
+import Navbar from "./components/Navbar";
+import Meetups from "./components/Meetups";
+import TermsandServices from "./components/TermsandServices";
+import Footer from "./components/Footer";
 
 const App = () => {
   return (
     <Router>
+      <Navbar />
       <Routes>
-        <Route path="/events" element={<EventsList />} />
-        <Route path="/events/:eventId" element={<EventDetail />} />
-    {/* //     <Route path="/" element={<SignIn />} />
-    //     <Route path="/callback" element={<Callback />} />
-    //     <Route path="/welcome" element={<Welcome />} /> */}
+        <Route path="/signIn" element={<SignIn />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/callback" element={<Callback />} />
+
+        <Route path="/meetups" element={<Meetups />} />
+        <Route path="/privacy-policy" element={<TermsandServices />} />
+        <Route path="/terms-of-service" element={<TermsandServices />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };

@@ -27,7 +27,8 @@ services:
       - POSTGRES_DB=meetsafe
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./users.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./users.sql:/docker-entrypoint-initdb.d/users.sql
+      - ./groups.sql:/docker-entrypoint-initdb.d/groups.sql
 
   pgadmin:
     image: dpage/pgadmin4

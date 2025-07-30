@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { LogOut } from 'lucide-react';
+import Groups from './Groups';
+import './Groups.css';
 
 const Welcome = () => {
   const [name, setName] = useState(null);
@@ -155,6 +157,7 @@ const Welcome = () => {
             </p>
           </div>
         )}
+        {!showWelcomeMessage && <Groups />}
       </main>
     </div>
   );

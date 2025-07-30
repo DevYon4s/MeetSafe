@@ -1,0 +1,291 @@
+/* Base Styles */
+.features-container {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+/* Navigation (same as Home) */
+.navbar {
+  background-color: white;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ... (include all nav styles from Home.css) ... */
+
+.nav-link.active {
+  color: #2667cc;
+  font-weight: 600;
+}
+
+/* Features Hero */
+.features-hero {
+  background: linear-gradient(135deg, #2667cc 0%, #7c3aed 100%);
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.features-hero .hero-title {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.features-hero .hero-title span {
+  color: #e0e7ff;
+}
+
+.features-hero .hero-description {
+  color: #e0e7ff;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Core Features */
+.core-features {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+.section-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.feature-card {
+  background-color: #f9fafb;
+  padding: 2rem;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.feature-icon svg {
+  height: 3rem;
+  width: 3rem;
+  color: #2667cc;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.feature-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.feature-description {
+  color: #4b5563;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.feature-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.benefit-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  color: #374151;
+}
+
+.check-icon {
+  height: 1.25rem;
+  width: 1.25rem;
+  color: #10b981;
+  margin-right: 0.5rem;
+}
+
+/* How It Works */
+.how-it-works {
+  padding: 4rem 0;
+  background-color: #f9fafb;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step-card {
+  background-color: white;
+
+  padding: 2rem;
+  position: relative;
+  border-left: 4px solid #2667cc;
+}
+
+.step-number {
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  background-color: #2667cc;
+  color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.step-description {
+  color: #4b5563;
+}
+
+/* Benefits Section */
+.benefits-section {
+  padding: 4rem 0;
+  background-color: white;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.benefit-card {
+  background-color: #f9fafb;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.benefit-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #2667cc;
+  margin-bottom: 0.5rem;
+}
+
+/* CTA Section */
+.cta-section {
+  background: linear-gradient(135deg, #2667cc 0%, #7c3aed 100%);
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  color: #e0e7ff;
+  margin-bottom: 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* Footer (same as Home) */
+.footer {
+  background-color: #1f2937;
+  color: white;
+  padding: 3rem 0;
+}
+
+/* ... (include all footer styles from Home.css) ... */
+
+/* Media Queries */
+@media (min-width: 640px) {
+  .features-hero .hero-title {
+    font-size: 3rem;
+  }
+
+  .cta-buttons {
+    flex-direction: row;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .steps-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .features-hero {
+    padding: 6rem 1rem;
+  }
+
+  .features-hero .hero-title {
+    font-size: 3.5rem;
+  }
+}
