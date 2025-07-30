@@ -25,7 +25,7 @@
 }
 
 .create-event-button {
-  background-color: #6a51ff;
+  background-color: #3a86ff;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -37,7 +37,7 @@
 }
 
 .create-event-button:hover {
-  background-color: #5a41e0;
+  background-color: #3a86ff;
 }
 
 .events-list-container {

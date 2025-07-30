@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Meetups from "./components/Meetups";
 import TermsandServices from "./components/TermsandServices";
 import Footer from "./components/Footer";
+import EventsList from "./components/Events/EventsList";
+import EventDetail from "./components/Events/EventDetail";
 
 const App = () => {
   return (
@@ -21,6 +23,9 @@ const App = () => {
         <Route path="/meetups" element={<Meetups />} />
         <Route path="/privacy-policy" element={<TermsandServices />} />
         <Route path="/terms-of-service" element={<TermsandServices />} />
+        
+        <Route path="/events" element={<EventsList/>} />
+        <Route path="/events/:eventId" element={<EventDetail />} />
       </Routes>
       <Footer />
     </Router>

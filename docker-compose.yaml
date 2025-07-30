@@ -27,8 +27,11 @@ services:
       - POSTGRES_DB=meetsafe
     volumes:
       - postgres_data:/var/lib/postgresql/data
-      - ./users.sql:/docker-entrypoint-initdb.d/users.sql
-      - ./groups.sql:/docker-entrypoint-initdb.d/groups.sql
+      - ./01_users.sql:/docker-entrypoint-initdb.d/01_users.sql
+      - ./02_interests.sql:/docker-entrypoint-initdb.d/02_interests.sql
+      - ./03_groups.sql:/docker-entrypoint-initdb.d/03_groups.sql
+      - ./04_events.sql:/docker-entrypoint-initdb.d/04_events.sql
+      - ./05_event_participant.sql:/docker-entrypoint-initdb.d/05_event_participant.sql
 
   pgadmin:
     image: dpage/pgadmin4

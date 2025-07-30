@@ -2,7 +2,7 @@
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 6px rgba(106, 81, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(81, 142, 255, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   display: flex;
@@ -13,7 +13,7 @@
 
 .event-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(106, 81, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(81, 142, 255, 0.4);
 }
 
 .event-card-image-container {
@@ -40,7 +40,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(106, 81, 255, 0.5);
+  background: rgba(81, 142, 255, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -88,5 +88,5 @@
 
 .event-card-meta i {
   margin-right: 0.5rem;
-  color: #6a51ff;
+  color: #3a86ff;
 }

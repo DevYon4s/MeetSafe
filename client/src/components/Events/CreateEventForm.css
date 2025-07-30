@@ -38,8 +38,8 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #6a51ff;
-  box-shadow: 0 0 0 2px rgba(106, 81, 255, 0.2);
+  border-color: #3a86ff;
+  box-shadow: 0 0 0 2px rgba(81, 142, 255, 0.5);
 }
 
 .image-preview {
@@ -59,7 +59,7 @@
 }
 
 .submit-button {
-  background-color: #6a51ff;
+  background-color: #3a86ff;
   color: white;
   border: none;
   padding: 0.8rem 1.5rem;
@@ -71,7 +71,7 @@
 }
 
 .submit-button:hover {
-  background-color: #5a41e0;
+  background-color: #3a86ff;
 }
 
 .cancel-button {

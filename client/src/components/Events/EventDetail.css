@@ -7,7 +7,7 @@
 .back-button {
   background: none;
   border: none;
-  color: #6a51ff;
+  color: #3a86ff;
   font-size: 1rem;
   cursor: pointer;
   padding: 0.5rem 0;
@@ -79,7 +79,7 @@
 }
 
 .join-button {
-  background-color: #6a51ff;
+  background-color: #3a86ff;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -93,5 +93,5 @@
 }
 
 .join-button:hover {
-  background-color: #5a41e0;
+  background-color: #3a86ff;
 }
