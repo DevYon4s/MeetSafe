@@ -74,11 +74,11 @@
   background-color: #3a86ff;
 }
 
-.cancel-button {
+.cancel-create-button {
   background-color: #f0f0f0;
   color: #6a6a95;
   border: none;
-  padding: 0.8rem 1.5rem;
+  padding: 0.8rem 1.9rem;
   border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
@@ -86,6 +86,6 @@
   font-weight: 600;
 }
 
-.cancel-button:hover {
+.cancel-create-button:hover {
   background-color: #e0e0e0;
 }

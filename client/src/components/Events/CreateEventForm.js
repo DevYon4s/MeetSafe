@@ -123,7 +123,7 @@ const CreateEventForm = ({ onEventCreated, onCancel }) => {
           <button 
             type="button" 
             onClick={onCancel}
-            className="cancel-button"
+            className="cancel-create-button"
           >
             Cancel
           </button>
