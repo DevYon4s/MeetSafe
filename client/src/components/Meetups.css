@@ -1,33 +1,9 @@
-/* Base Styles */
 .meetups-container {
-  min-height: 100vh;
-  background-color: #f9fafb;
-}
-
-/* Navigation (same as Home) */
-.navbar {
-  background-color: white;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-}
-
-.nav-container {
-  max-width: 1280px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
-}
-
-/* ... (include all nav styles from Home.css) ... */
-
-.nav-link.active {
-  color: #2667cc;
-  font-weight: 600;
-}
-
-/* Main Content */
-.meetups-main {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2rem;
+  color: #333;
 }
 
 .meetups-header {
@@ -37,43 +13,70 @@
 
 .meetups-header h1 {
   font-size: 2.5rem;
-  font-weight: 700;
-  color: #111827;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
 }
 
 .meetups-header p {
-  color: #4b5563;
-  font-size: 1.125rem;
+  color: #7f8c8d;
   margin-bottom: 1.5rem;
 }
 
-.create-meetup-btn {
-  background-color: #2667cc;
+/* Buttons */
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.primary-btn {
+  background-color:  #2667cc;
   color: white;
+  border: none;
+  border-radius: 6px;
   padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 500;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: background-color 0.3s;
+  transition: background-color 0.2s;
 }
 
-.create-meetup-btn:hover {
-  background-color: #4338ca;
+.primary-btn:hover {
+  background-color: #3a5a80;
 }
 
-.create-meetup-btn svg {
-  height: 1.25rem;
-  width: 1.25rem;
-  stroke-width: 2;
+.primary-btn:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
 }
 
-/* Meetup Tabs */
+.secondary-btn {
+  background-color: white;
+  color:  #2667cc;
+  border: 1px solid  #2667cc;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.secondary-btn:hover {
+  background-color: #f5f7fa;
+}
+
+/* Tabs */
 .meetups-tabs {
   display: flex;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #ddd;
   margin-bottom: 2rem;
 }
 
@@ -81,178 +84,170 @@
   padding: 0.75rem 1.5rem;
   background: none;
   border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #7f8c8d;
   cursor: pointer;
-  font-weight: 500;
-  color: #6b7280;
-  position: relative;
+  transition: all 0.2s;
 }
 
 .tab-btn.active {
-  color: #2667cc;
+  color:  #2667cc;
+  border-bottom-color:  #2667cc;
 }
 
-.tab-btn.active::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background-color: #2667cc;
-}
-
-/* Meetups List */
+/* Meetup Cards */
 .meetups-list {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
 .meetup-card {
-  background-color: white;
-  border-radius: 0.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .meetup-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.meetup-card-header {
+.card-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 1rem;
 }
 
-.meetup-card-header h3 {
+.card-header h3 {
+  margin: 0;
   font-size: 1.25rem;
-  font-weight: 600;
-  color: #111827;
+  color: #2c3e50;
 }
 
 .interest-badge {
-  background-color: #e0e7ff;
-  color: #2667cc;
+  background-color: #e8f4fd;
+  color:  #2667cc;
   padding: 0.25rem 0.75rem;
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-weight: 500;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
-.meetup-card-details {
-  display: grid;
-  gap: 1rem;
+.card-details {
   margin-bottom: 1.5rem;
+  flex-grow: 1;
 }
 
 .detail-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #4b5563;
+  margin-bottom: 0.75rem;
+  color: #555;
 }
 
 .detail-item svg {
-  height: 1.25rem;
-  width: 1.25rem;
-  color: #6b7280;
+  width: 20px;
+  height: 20px;
+  fill: #7f8c8d;
+}
+
+.detail-item h5 {
+  margin-bottom: 0.25rem; /* Adjust as needed (default is often 1em) */
+}
+
+.detail-item p {
+  margin-top: 0; /* Remove default top margin */
 }
 
 .attendees {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 
-.attendees-count {
-  font-size: 0.875rem;
-  color: #4b5563;
-  margin-bottom: 0.25rem;
+.progress-container {
+  height: 6px;
+  background-color: #ecf0f1;
+  border-radius: 3px;
+  margin-bottom: 0.5rem;
 }
 
 .progress-bar {
-  height: 0.5rem;
-  background-color: #e5e7eb;
-  border-radius: 0.25rem;
-  overflow: hidden;
-}
-
-.progress-fill {
   height: 100%;
-  background-color: #2667cc;
-  border-radius: 0.25rem;
+  background-color:  #2667cc;
+  border-radius: 3px;
+  transition: width 0.5s ease;
 }
 
-.rating {
+.rating-display {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  color: #f59e0b;
+  margin-top: 1rem;
 }
 
-.rating svg {
-  height: 1.25rem;
-  width: 1.25rem;
-  fill: currentColor;
+.rating-display svg {
+  width: 20px;
+  height: 20px;
+  fill: #f0c417;
 }
 
-.view-details-btn {
-  width: 100%;
-  background-color: #2667cc;
-  color: white;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.view-details-btn:hover {
-  background-color: #4338ca;
-}
-
-/* Meetup Detail Modal */
-.meetup-modal {
+/* Modals */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 50;
-  padding: 1rem;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
+  position: relative;
   background-color: white;
-  border-radius: 0.5rem;
-  width: 100%;
+  border-radius: 8px;
+  width: 90%;
   max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
   padding: 2rem;
-  position: relative;
 }
 
-.close-modal {
+.close-btn {
   position: absolute;
   top: 1rem;
   right: 1rem;
   background: none;
   border: none;
   cursor: pointer;
-  color: #6b7280;
+  padding: 0.5rem;
 }
 
-.close-modal svg {
-  height: 1.5rem;
-  width: 1.5rem;
-  stroke-width: 2;
+.close-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: #7f8c8d;
 }
 
 .modal-header {
@@ -260,120 +255,107 @@
 }
 
 .modal-header h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.5rem;
+  margin: 0;
+  color: #2c3e50;
 }
 
-.modal-details {
+.modal-header p {
+  margin: 0.5rem 0 0;
+  color: #7f8c8d;
+}
+
+.modal-body {
+  margin-bottom: 2rem;
+}
+
+.detail-section {
+  margin-bottom: 1.5rem;
+}
+
+.detail-section h4 {
+  margin: 0 0 0.75rem;
+  color: #2c3e50;
+}
+
+.details-grid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-.detail-row {
+@media (min-width: 600px) {
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.modal-footer {
   display: flex;
   gap: 1rem;
+  justify-content: flex-end;
 }
 
-.detail-row svg {
-  flex-shrink: 0;
-  height: 1.5rem;
-  width: 1.5rem;
-  color: #6b7280;
-  margin-top: 0.25rem;
+/* Rating Modal Specific Styles */
+.rating-modal {
+  max-width: 500px;
 }
 
-.detail-row.full-width {
-  align-items: flex-start;
-}
-
-.detail-row h4 {
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 0.25rem;
-}
-
-.detail-row p {
-  color: #4b5563;
-}
-
-.attendees-modal {
-  width: 100%;
-}
-
-.modal-actions {
+.star-rating {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 2rem 0;
+}
+
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.star-btn svg {
+  width: 40px;
+  height: 40px;
+  fill: #e4e5e9;
+  transition: fill 0.2s;
+}
+
+.star-btn.filled svg {
+  fill: #f0c417;
+}
+
+.rating-text {
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.review-section {
   margin-top: 2rem;
 }
 
-.join-btn,
-.rate-btn {
-  flex: 1;
-  background-color: #2667cc;
-  color: white;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
+.review-section label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
   font-weight: 500;
-  transition: background-color 0.3s;
 }
 
-.join-btn:hover,
-.rate-btn:hover {
-  background-color: #4338ca;
+.review-section textarea {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 120px;
 }
 
-.message-btn {
-  flex: 1;
-  border: 1px solid #2667cc;
-  color: #2667cc;
-  padding: 0.75rem;
-  border-radius: 0.375rem;
-  font-weight: 500;
-  transition: background-color 0.3s;
-}
-
-.message-btn:hover {
-  background-color: #eef2ff;
-}
-
-/* Footer (same as Home) */
-.footer {
-  background-color: #1f2937;
-  color: white;
-  padding: 3rem 0;
-}
-
-/* ... (include all footer styles from Home.css) ... */
-
-/* Media Queries */
-@media (min-width: 640px) {
-  .meetups-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .modal-actions {
-    flex-direction: row;
-  }
-}
-
-@media (min-width: 768px) {
-  .meetups-header h1 {
-    font-size: 3rem;
-  }
-
-  .meetup-card-header {
-    align-items: center;
-  }
-}
-
-@media (min-width: 1024px) {
-  .meetups-list {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .meetups-main {
-    padding: 3rem 1rem;
-  }
+.review-section textarea:focus {
+  outline: none;
+  border-color:  #2667cc;
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
 }
