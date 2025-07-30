@@ -23,6 +23,8 @@ const EventCard = ({ event }) => {
       </div>
       <div className="event-card-content">
         <h3>{event.name}</h3>
+        <p><strong>When:</strong> {event.date_time}</p>
+        <p><strong>Hosted by:</strong> {event.host_name}</p>
         <div className="event-card-meta">
           <p><i className="fas fa-map-marker-alt"></i> {event.place}</p>
           <p><i className="fas fa-users"></i> Max: {event.maxParticipants}</p>

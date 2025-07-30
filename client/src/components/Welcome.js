@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Groups from './Groups';
+import EventsList from './Events/EventsList';
+import CreateEventForm from './Events/CreateEventForm';
 import './Groups.css';
 
 const Welcome = () => {
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
+  const [showCreateEventForm, setShowCreateEventForm] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -29,6 +32,12 @@ const Welcome = () => {
   const handleSignOut = () => {
     sessionStorage.clear();
     navigate('/');
+  };
+
+  const handleEventCreated = (newEvent) => {
+    // Here you would typically update a shared state or refetch events
+    console.log('Event created:', newEvent);
+    setShowCreateEventForm(false);
   };
 
   if (!name) {
@@ -103,7 +112,22 @@ const Welcome = () => {
               We're glad to have you here.
             </p>
           </div>
-        ) : <Groups />}
+        ) : (
+          <>
+            {showCreateEventForm && (
+              <div className="form-overlay">
+                <div className="form-container">
+                  <CreateEventForm 
+                    onEventCreated={handleEventCreated} 
+                    onCancel={() => setShowCreateEventForm(false)}
+                  />
+                </div>
+              </div>
+            )}
+            <EventsList />
+            <Groups />
+          </>
+        )}
       </main>
     </div>
   );

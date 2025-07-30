@@ -1,13 +1,16 @@
 CREATE TABLE interests (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(50) UNIQUE NOT NULL
+    name VARCHAR(255) NOT NULL UNIQUE
 );
 
 INSERT INTO interests (name) VALUES
+('Reading'),
+('Gaming'),
+('Language Learning'),
+('Writing'),
+('Music'),
+('Mental Health'),
+('Outdoors'),
 ('Technology'),
-('Health & Fitness'),
-('Food & Drink'),
-('Arts & Culture'),
-('Sports'),
-('Travel'),
-('Music');
+('Art'),
+('Photography');

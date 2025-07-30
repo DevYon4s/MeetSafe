@@ -10,6 +10,9 @@ COPY package*.json ./
 # Install any needed packages
 RUN npm install
 
+# Force clean install of node_modules to prevent caching issues
+RUN rm -rf node_modules && npm install
+
 # Bundle app source
 COPY . .
 

@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CreateEventForm.css';
 
 const CreateEventForm = ({ onEventCreated, onCancel }) => {
   const [formData, setFormData] = useState({
-    name: '',
+    title: '',
     description: '',
-    place: '',
-    maxParticipants: '',
-    image: null,
-    imagePreview: ''
+    location: '',
+    max_participants: '',
+    cover_photo: '',
+    date_time: '',
+    // Assuming a default creator_id for now, replace with actual user ID from auth context
+    creator_id: 1, 
+    // Assuming a default interest_id for now, or remove if nullable
+    interest_id: 1 
   });
 
   const handleChange = (e) => {
@@ -19,28 +24,25 @@ const CreateEventForm = ({ onEventCreated, onCancel }) => {
     }));
   };
 
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setFormData(prev => ({
-          ...prev,
-          image: file,
-          imagePreview: reader.result
-        }));
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newEvent = {
-      ...formData,
-      maxParticipants: parseInt(formData.maxParticipants)
-    };
-    onEventCreated(newEvent);
+    try {
+      const response = await axios.post('http://localhost:5000/api/events', {
+        title: formData.title,
+        description: formData.description,
+        location: formData.location,
+        max_participants: parseInt(formData.max_participants),
+        cover_photo: formData.cover_photo || 'https://via.placeholder.com/500x300?text=Event+Image', // Placeholder if no image URL provided
+        date_time: formData.date_time || new Date().toISOString(), // Placeholder if no date_time provided
+        creator_id: formData.creator_id,
+        interest_id: formData.interest_id
+      });
+      onEventCreated(response.data);
+      alert('Event created successfully!');
+    } catch (error) {
+      console.error('Error creating event:', error.response ? error.response.data : error.message);
+      alert('Failed to create event.');
+    }
   };
 
   return (
@@ -51,8 +53,8 @@ const CreateEventForm = ({ onEventCreated, onCancel }) => {
           <label>Event Name</label>
           <input
             type="text"
-            name="name"
-            value={formData.name}
+            name="title"
+            value={formData.title}
             onChange={handleChange}
             required
             placeholder="Enter event name"
@@ -74,8 +76,8 @@ const CreateEventForm = ({ onEventCreated, onCancel }) => {
           <label>Location</label>
           <input
             type="text"
-            name="place"
-            value={formData.place}
+            name="location"
+            value={formData.location}
             onChange={handleChange}
             required
             placeholder="Enter address for Google Maps"
@@ -86,8 +88,8 @@ const CreateEventForm = ({ onEventCreated, onCancel }) => {
           <label>Max Participants</label>
           <input
             type="number"
-            name="maxParticipants"
-            value={formData.maxParticipants}
+            name="max_participants"
+            value={formData.max_participants}
             onChange={handleChange}
             min="1"
             required
@@ -96,20 +98,25 @@ const CreateEventForm = ({ onEventCreated, onCancel }) => {
         </div>
 
         <div className="form-group">
-          <label>Event Image</label>
+          <label>Cover Photo URL</label>
           <input
-            type="file"
-            accept="image/*"
-            onChange={handleImageChange}
+            type="text"
+            name="cover_photo"
+            value={formData.cover_photo}
+            onChange={handleChange}
+            placeholder="Enter image URL (e.g., https://example.com/image.jpg)"
+          />
+        </div>
+
+        <div className="form-group">
+          <label>Date and Time</label>
+          <input
+            type="datetime-local"
+            name="date_time"
+            value={formData.date_time}
+            onChange={handleChange}
             required
           />
-          {formData.imagePreview && (
-            <img 
-              src={formData.imagePreview} 
-              alt="Preview" 
-              className="image-preview"
-            />
-          )}
         </div>
 
         <div className="form-actions">

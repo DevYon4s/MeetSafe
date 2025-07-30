@@ -1,74 +1,21 @@
 CREATE TABLE events (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(100) NOT NULL,
-    description TEXT,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
     location VARCHAR(255) NOT NULL,
-    date_time TIMESTAMP NOT NULL,
-    creator_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    interest_id INTEGER REFERENCES interests(id) ON DELETE SET NULL,
-    max_participants INTEGER,
-    cover_photo VARCHAR(255),
-    created_at TIMESTAMP DEFAULT NOW()
+    max_participants INTEGER NOT NULL,
+    cover_photo VARCHAR(255) NOT NULL,
+    creator_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );
 
-INSERT INTO users (id, full_name, picture, email_address, gender, address, birthdate, nationality, phone_number)
-VALUES (
-    1,
-    'John Doe',
-    'https://example.com/path/to/profile.jpg',
-    'john.doe@example.com',
-    'Male',
-    '123 Main Street, Anytown, USA',
-    '1990-05-15',
-    'American',
-    '+1 (555) 123-4567'
-);
-
--- Sample inserts with cover photos
-INSERT INTO events (title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo)
-VALUES (
-    'React Conference 2023',
-    'Annual conference for React developers with workshops and talks',
-    'Convention Center, Tech City',
-    '2023-11-15 09:00:00',
-    1,
-    1,
-    200,
-    'https://plus.unsplash.com/premium_photo-1679547202671-f9dbbf466db4?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-);
-
-INSERT INTO events (title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo)
-VALUES (
-    'Central Park Morning Run',
-    'Weekly 5K running group for all fitness levels',
-    'Central Park, New York',
-    '2023-10-21 07:30:00',
-    1,
-    1,
-    50,
-    'https://plus.unsplash.com/premium_photo-1682116752956-c880046f5361?w=2000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGFya3xlbnwwfHwwfHx8MA%3D%3D'
-);
-
-INSERT INTO events (title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo)
-VALUES (
-    'Italian Pasta Masterclass',
-    'Learn to make fresh pasta from scratch with Chef Mario',
-    'Culinary Arts School, Downtown',
-    '2023-11-05 18:00:00',
-    1,
-    1,
-    15,
-    'https://images.unsplash.com/photo-1593548615309-5a45c504f994?w=2000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aXRhbGlhbiUyMHJlc3RhdXJhbnR8ZW58MHx8MHx8fDA%3D'
-);
-
-INSERT INTO events (title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo)
-VALUES (
-    'Jazz Night at the Blue Note',
-    'Live jazz performance featuring local artists',
-    'The Blue Note Club',
-    '2023-12-10 20:00:00',
-    1,
-    1,
-    100,
-    'https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=2000&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8amF6enxlbnwwfHwwfHx8MA%3D%3D'
-);
+INSERT INTO events (title, description, location, max_participants, cover_photo, creator_id) VALUES
+('Book Club Meetup', 'Discussing "The Shadow King" by Maaza Mengiste. All are welcome!', 'Tomoca Coffee, Addis Ababa', 20, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 1),
+('Gebeta Tournament', 'A friendly tournament of Gebeta. Prizes for the top 3 players!', 'Unity Park, Addis Ababa', 16, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 2),
+('Ge'ez Language Workshop', 'An introductory workshop to the Ge'ez script and basic grammar.', 'Addis Ababa University, Addis Ababa', 30, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 3),
+('Poetry Slam Night', 'Share your original poetry or enjoy the performances of others.', 'Fendika Azmari Bet, Addis Ababa', 50, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 4),
+('Traditional Music Jam Session', 'Bring your instruments and lets jam to some traditional Ethiopian tunes.', 'The Ethiopian National Theatre, Addis Ababa', 40, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 5),
+('Mental Health Awareness Walk', 'A walk to raise awareness about mental health and wellness.', 'Meskel Square, Addis Ababa', 100, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 6),
+('Hiking Trip to Entoto Hills', 'A scenic hike through the Entoto Hills. Pack a lunch and enjoy the views!', 'Entoto Hills, Addis Ababa', 25, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 7),
+('Tech Talk: The Future of AI', 'A discussion on the latest trends and advancements in Artificial Intelligence.', 'Iceaddis, Addis Ababa', 60, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 8),
+('Plein Air Painting Session', 'A casual painting session outdoors. All skill levels are welcome.', 'Friendship Park, Addis Ababa', 15, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 9),
+('Amharic-English Language Exchange', 'Practice your Amharic or English with native speakers.', 'The Lime Tree, Addis Ababa', 30, 'https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60', 10);

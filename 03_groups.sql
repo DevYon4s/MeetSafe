@@ -6,7 +6,7 @@ CREATE TABLE groups (
 );
 
 INSERT INTO groups (name, image, description) VALUES
-('Bookworms United', 'https://cdn-v2.asla.org/uploadedImages/CMS/Shop/Bookstore/books.jpg', 'A safe space for readers of all genres to share recommendations, discuss literature, and organize book club meetups.'),
+('Bookworms United', 'https://static.scientificamerican.com/sciam/cache/file/1DDFE633-2B85-468D-B28D05ADAE7D1AD8_source.jpg?w=1200', 'A safe space for readers of all genres to share recommendations, discuss literature, and organize book club meetups.'),
 ('Traditional Games & Gebeta Club', 'https://cf.geekdo-images.com/aTsAClEwPQDHsgTBISjqpA__imagepage/img/EXt2JXuxPsGgajwTMekCq_XyQoo=/fit-in/900x600/filters:no_upscale():strip_icc()/pic1557975.jpg', 'Connect with others who love Ethiopian traditional games like Gebeta, or want to learn and play together in person.'),
 ('Geʽez Language Learners', 'https://encyclopedia.pub/media/common/202211/mceclip0-6375d45a6e3ad.png', 'Practice and learn Geʽez with others passionate about preserving Ethiopia’s ancient language and culture.'),
 ('Creative Writers & Poets', 'https://www.edynamiclearning.com/wp-content/uploads/2019/04/Creative-Writing-I-HIGH-RES.jpg', 'Share your writing, get feedback, and collaborate on creative projects with other aspiring writers and poets.'),
