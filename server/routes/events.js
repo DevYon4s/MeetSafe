@@ -24,11 +24,10 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get a specific event by ID
+// Get specific event
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    
     const event = await pool.query(`
       SELECT 
         e.*, 
@@ -62,18 +61,21 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create a new event
+// Create event
 router.post('/', async (req, res) => {
   try {
-    const { title, description, location, date_time, creator_id, interest_id, max_participants } = req.body;
+    const { title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo } = req.body;
     
     if (!title || !location || !date_time || !creator_id) {
       return res.status(400).json({ error: 'Missing required fields' });
     }
 
     const newEvent = await pool.query(
-      'INSERT INTO events (title, description, location, date_time, creator_id, interest_id, max_participants) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *',
-      [title, description, location, date_time, creator_id, interest_id, max_participants]
+      `INSERT INTO events 
+        (title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo) 
+       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) 
+       RETURNING *`,
+      [title, description, location, date_time, creator_id, interest_id, max_participants, cover_photo]
     );
 
     await pool.query(
@@ -88,7 +90,75 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Join an event
+// Update event
+router.put('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { creator_id, title, description, location, date_time, interest_id, max_participants, cover_photo } = req.body;
+
+    if (!creator_id) {
+      return res.status(400).json({ error: 'Creator ID is required' });
+    }
+
+    const event = await pool.query('SELECT creator_id FROM events WHERE id = $1', [id]);
+    if (event.rows.length === 0) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+    if (event.rows[0].creator_id !== creator_id) {
+      return res.status(403).json({ error: 'Only the event creator can update this event' });
+    }
+
+    const updatedEvent = await pool.query(
+      `UPDATE events SET
+        title = COALESCE($1, title),
+        description = COALESCE($2, description),
+        location = COALESCE($3, location),
+        date_time = COALESCE($4, date_time),
+        interest_id = COALESCE($5, interest_id),
+        max_participants = COALESCE($6, max_participants),
+        cover_photo = COALESCE($7, cover_photo)
+      WHERE id = $8
+      RETURNING *`,
+      [title, description, location, date_time, interest_id, max_participants, cover_photo, id]
+    );
+
+    res.json(updatedEvent.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
+// Delete event
+router.delete('/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { creator_id } = req.body;
+
+    if (!creator_id) {
+      return res.status(400).json({ error: 'Creator ID is required' });
+    }
+
+    const event = await pool.query('SELECT creator_id FROM events WHERE id = $1', [id]);
+    if (event.rows.length === 0) {
+      return res.status(404).json({ error: 'Event not found' });
+    }
+    if (event.rows[0].creator_id !== creator_id) {
+      return res.status(403).json({ error: 'Only the event creator can delete this event' });
+    }
+
+    await pool.query('DELETE FROM event_participants WHERE event_id = $1', [id]);
+    
+    await pool.query('DELETE FROM events WHERE id = $1', [id]);
+
+    res.status(204).send();
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+});
+
+// Join event
 router.post('/:eventId/join', async (req, res) => {
   try {
     const { eventId } = req.params;
@@ -101,6 +171,10 @@ router.post('/:eventId/join', async (req, res) => {
     const event = await pool.query('SELECT * FROM events WHERE id = $1', [eventId]);
     if (event.rows.length === 0) {
       return res.status(404).json({ error: 'Event not found' });
+    }
+
+    if (event.rows[0].creator_id === userId) {
+      return res.status(400).json({ error: 'Event creator is automatically a participant' });
     }
 
     const existingParticipant = await pool.query(
@@ -135,7 +209,7 @@ router.post('/:eventId/join', async (req, res) => {
   }
 });
 
-// Leave an event
+// Leave event
 router.delete('/:eventId/leave', async (req, res) => {
   try {
     const { eventId } = req.params;
