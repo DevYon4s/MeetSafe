@@ -214,3 +214,34 @@
 .join-button:hover {
   background-color: #2a76ef;
 }
+
+.im-coming-button {
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.im-coming-button:hover {
+  background-color: #45a049;
+}
+
+.back-to-events-button {
+  background-color: #008CBA; /* Blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.back-to-events-button:hover {
+  background-color: #007B9E;
+}

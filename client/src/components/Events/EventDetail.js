@@ -160,6 +160,14 @@ const EventDetail = () => {
   const [event, setEvent] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
+  const handleImComing = () => {
+    alert("You are registered for the event! Don't forget to bring your national ID with you when coming to the event.");
+  };
+
+  const handleBackToEvents = () => {
+    navigate('/events');
+  };
+
   useEffect(() => {
     const foundEvent = hardcodedEvents.find(e => e.id === parseInt(eventId));
     if (foundEvent) {
@@ -170,11 +178,7 @@ const EventDetail = () => {
     }
   }, [eventId, navigate]);
 
-  const handleUpdateEvent = (updatedEvent) => {
-    // In a real app, you'd update your backend here
-    setEvent(updatedEvent);
-    setIsEditing(false);
-  };
+  
 
   if (!event) {
     return <div>Loading event details...</div>;
@@ -182,10 +186,7 @@ const EventDetail = () => {
 
   return (
     <div className="event-detail-container">
-      {isEditing ? (
-        <EditEventForm event={event} onUpdateEvent={handleUpdateEvent} onCancel={() => setIsEditing(false)} />
-      ) : (
-        <>
+      <div>
           <img src={event.cover_photo} alt={event.title} className="event-detail-image" />
           <h1>{event.title}</h1>
           <p><strong>Description:</strong> {event.description}</p>
@@ -193,9 +194,9 @@ const EventDetail = () => {
           <p><strong>Date & Time:</strong> {event.date_time}</p>
           <p><strong>Host:</strong> {event.host_name}</p>
           <p><strong>Max Participants:</strong> {event.max_participants}</p>
-          <button onClick={() => setIsEditing(true)}>Edit Event</button>
-        </>
-      )}
+          <button className="im-coming-button" onClick={handleImComing}>I'm Coming</button>
+          <button className="back-to-events-button" onClick={handleBackToEvents}>Back to All Events</button>
+        </div>
     </div>
   );
 };
