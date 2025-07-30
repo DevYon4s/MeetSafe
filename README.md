@@ -6,7 +6,7 @@ MeetSafe
 
 ## Contributors
 
-- Yonas Belew
+- Yonas Belew(yonasbelew1@gmail.com)
 - Mahlet Belay
 - Meaza Mulatu
 
