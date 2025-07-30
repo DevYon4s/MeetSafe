@@ -25,14 +25,84 @@
   background: white;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(106, 81, 255, 0.15);
+  box-shadow: 0 4px 12px rgba(81, 142, 255, 0.2);
   border: 1px solid #e0d6ff;
+}
+
+.event-header {
+  position: relative;
 }
 
 .event-detail-image {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
+}
+
+.event-actions {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.event-menu-button {
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #3a3a72;
+}
+
+.event-menu-button:hover {
+  background: white;
+}
+
+.event-menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  min-width: 120px;
+  z-index: 10;
+  overflow: hidden;
+}
+
+.event-menu-dropdown .edit-button {
+  display: block;
+  width: 100%;
+  padding: 8px 16px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #3a3a72;
+}
+
+.event-menu-dropdown button:hover {
+  background: #f1f7ff;
+}
+
+.delete-button {
+  color: #e03535;
+  font-weight: 600;
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #ffeeee;
 }
 
 .event-detail-content {
@@ -58,6 +128,7 @@
   gap: 2rem;
   margin: 1rem 0;
   color: #6a6a95;
+  flex-wrap: wrap;
 }
 
 .event-meta p {
@@ -78,6 +149,54 @@
   color: #4a4a7a;
 }
 
+.participants-section {
+  margin: 2rem 0;
+}
+
+.participants-section h3 {
+  margin-bottom: 1rem;
+  color: #3a3a72;
+}
+
+.participants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.participant-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.participant-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.5rem;
+  border: 2px solid #deebff;
+}
+
+.participant-name {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4a4a7a;
+  font-weight: 500;
+}
+
+.creator-badge {
+  font-size: 0.7rem;
+  background: #deebff;
+  color: #3a86ff;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-top: 4px;
+}
+
 .join-button {
   background-color: #3a86ff;
   color: white;
@@ -93,5 +212,5 @@
 }
 
 .join-button:hover {
-  background-color: #3a86ff;
+  background-color: #2a76ef;
 }
