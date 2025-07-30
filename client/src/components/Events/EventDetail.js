@@ -154,4 +154,50 @@ const hardcodedEvents = [
   },
 ];
 
+const EventDetail = () => {
+  const { eventId } = useParams();
+  const navigate = useNavigate();
+  const [event, setEvent] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+    const foundEvent = hardcodedEvents.find(e => e.id === parseInt(eventId));
+    if (foundEvent) {
+      setEvent(foundEvent);
+    } else {
+      // Handle event not found, e.g., redirect to a 404 page or events list
+      navigate('/events');
+    }
+  }, [eventId, navigate]);
+
+  const handleUpdateEvent = (updatedEvent) => {
+    // In a real app, you'd update your backend here
+    setEvent(updatedEvent);
+    setIsEditing(false);
+  };
+
+  if (!event) {
+    return <div>Loading event details...</div>;
+  }
+
+  return (
+    <div className="event-detail-container">
+      {isEditing ? (
+        <EditEventForm event={event} onUpdateEvent={handleUpdateEvent} onCancel={() => setIsEditing(false)} />
+      ) : (
+        <>
+          <img src={event.cover_photo} alt={event.title} className="event-detail-image" />
+          <h1>{event.title}</h1>
+          <p><strong>Description:</strong> {event.description}</p>
+          <p><strong>Location:</strong> {event.location}</p>
+          <p><strong>Date & Time:</strong> {event.date_time}</p>
+          <p><strong>Host:</strong> {event.host_name}</p>
+          <p><strong>Max Participants:</strong> {event.max_participants}</p>
+          <button onClick={() => setIsEditing(true)}>Edit Event</button>
+        </>
+      )}
+    </div>
+  );
+};
+
 export default EventDetail;

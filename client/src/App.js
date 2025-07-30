@@ -9,7 +9,7 @@ import Meetups from "./components/Meetups";
 import TermsandServices from "./components/TermsandServices";
 import Footer from "./components/Footer";
 import EventsList from "./components/Events/EventsList";
-import {EventDetail} from "./components/Events/EventDetail";
+import EventDetail from "./components/Events/EventDetail";
 
 import Welcome from "./components/Welcome";
 

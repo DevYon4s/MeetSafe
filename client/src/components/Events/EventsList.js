@@ -4,12 +4,6 @@ import EventCard from './EventCard';
 import CreateEventForm from './CreateEventForm';
 import './EventsList.css';
 
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import EventCard from './EventCard';
-import CreateEventForm from './CreateEventForm';
-import './EventsList.css';
-
 const ethiopianNames = [
   "Abebe", "Kebede", "Fatuma", "Chaltu", "Tigist", "Aster", "Bekele", "Genet", "Solomon", "Meaza"
 ];
