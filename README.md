@@ -145,6 +145,14 @@ Use the following values for testing during login:
 - **Test FIN/FAN 2:** `6230247319356120`
 - **OTP:** `111111`
 
+## 🚧 Issues We Faced
+
+We encountered invalid assertion issues on Monday and Tuesday nights, particularly after midnight. Despite using all the credentials provided in the group, we received the error shown in the attached image. As a result, we were unable to implement some features that require the user to be logged in.
+
+You can visit [http://localhost:3000/meetups](http://localhost:3000/meetups) to see what we were building and to view the event side of the product.
+![alt text](image.png)
+We tried logging in with both the FANs provided in the group and our personal FAN numbers, but we continued to encounter the same error.
+
 5. **Stopping the Application**  
    To stop the running Docker containers, press `Ctrl+C` in the terminal where `docker-compose up` is running. To remove the containers and networks, use:
 

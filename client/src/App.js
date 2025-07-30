@@ -5,6 +5,7 @@ import SignIn from "./components/SignIn";
 import Callback from "./components/Callback";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Meetups from "./components/Meetups";
 import TermsandServices from "./components/TermsandServices";
 import Footer from "./components/Footer";
 
@@ -17,7 +18,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/callback" element={<Callback />} />
 
-        {/* <Route path="/meetups" element={<Meetups />} /> */}
+        <Route path="/meetups" element={<Meetups />} />
         <Route path="/privacy-policy" element={<TermsandServices />} />
         <Route path="/terms-of-service" element={<TermsandServices />} />
       </Routes>
