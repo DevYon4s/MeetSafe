@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LogOut } from 'lucide-react';
 import Groups from './Groups';
 import './Groups.css';
 
@@ -8,18 +7,23 @@ const Welcome = () => {
   const [name, setName] = useState(null);
   const [picture, setPicture] = useState(null);
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
-  const [showSignOut, setShowSignOut] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     setName(sessionStorage.getItem('userName'));
     setPicture(sessionStorage.getItem('userPicture'));
 
-    const timer = setTimeout(() => {
-      setShowWelcomeMessage(false);
-    }, 3000);
+    const hasSeenWelcome = sessionStorage.getItem('hasSeenWelcome');
 
-    return () => clearTimeout(timer);
+    if (hasSeenWelcome) {
+      setShowWelcomeMessage(false);
+    } else {
+      const timer = setTimeout(() => {
+        setShowWelcomeMessage(false);
+        sessionStorage.setItem('hasSeenWelcome', 'true');
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleSignOut = () => {
@@ -53,71 +57,12 @@ const Welcome = () => {
         fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
       }}
     >
-      <nav
-        style={{
-          backgroundColor: "#ffffff",
-          padding: "15px 30px",
-          boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
-        <div style={{ fontSize: "1.5rem", fontWeight: "bold", color: "#333" }}>
-          MeetSafe
-        </div>
-        <div style={{ position: "relative" }}>
-          {picture && (
-            <img
-              src={picture}
-              alt="User Profile"
-              style={{
-                width: "40px",
-                height: "40px",
-                borderRadius: "50%",
-                objectFit: "cover",
-                border: "2px solid #4CAF50",
-                cursor: "pointer",
-              }}
-              onClick={() => setShowSignOut(!showSignOut)}
-            />
-          )}
-          {showSignOut && (
-            <button
-              onClick={handleSignOut}
-              style={{
-                position: "absolute",
-                top: "50px",
-                right: "0",
-                backgroundColor: "#fff",
-                border: "1px solid #ddd",
-                borderRadius: "5px",
-                padding: "10px 15px",
-                cursor: "pointer",
-                boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                zIndex: "1000",
-                display: "flex",
-                alignItems: "center",
-                gap: "5px",
-              }}
-            >
-              <LogOut size={18} /> Sign Out
-            </button>
-          )}
-        </div>
-      </nav>
-
       <main
         style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "calc(100vh - 70px)", // Adjust based on navbar height
           padding: "20px",
         }}
       >
-        {showWelcomeMessage && (
+        {showWelcomeMessage ? (
           <div
             style={{
               backgroundColor: "#ffffff",
@@ -127,6 +72,8 @@ const Welcome = () => {
               textAlign: "center",
               maxWidth: "500px",
               width: "100%",
+              margin: "auto",
+              marginTop: "100px"
             }}
           >
             {picture && (
@@ -156,8 +103,7 @@ const Welcome = () => {
               We're glad to have you here.
             </p>
           </div>
-        )}
-        {!showWelcomeMessage && <Groups />}
+        ) : <Groups />}
       </main>
     </div>
   );

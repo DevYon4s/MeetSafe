@@ -11,6 +11,8 @@ import Footer from "./components/Footer";
 import EventsList from "./components/Events/EventsList";
 import EventDetail from "./components/Events/EventDetail";
 
+import Welcome from "./components/Welcome";
+
 const App = () => {
   return (
     <Router>
@@ -19,6 +21,7 @@ const App = () => {
         <Route path="/signIn" element={<SignIn />} />
         <Route path="/" element={<Home />} />
         <Route path="/callback" element={<Callback />} />
+        <Route path="/welcome" element={<Welcome />} />
 
         <Route path="/meetups" element={<Meetups />} />
         <Route path="/privacy-policy" element={<TermsandServices />} />

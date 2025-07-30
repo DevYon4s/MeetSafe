@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import * as jose from "jose";
 
 const Callback = () => {
-  const [userInfo, setUserInfo] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -15,7 +14,6 @@ const Callback = () => {
         });
 
         const { access_token } = response.data;
-        console.log("Access token:", access_token);
 
         const userInfoResponse = await axios.post(
           "http://localhost:5000/api/userinfo/",
@@ -24,14 +22,9 @@ const Callback = () => {
           }
         );
 
-        console.log("User info response:", userInfoResponse.data);
         const decodedUserInfo = await decodeUserInfoResponse(
           userInfoResponse.data
         );
-        console.log("Decoded user info:", decodedUserInfo);
-
-        // Store the decoded user info in state
-        setUserInfo(decodedUserInfo);
 
         // Send user info to the server to be stored
         await axios.post("http://localhost:5000/api/user/store", decodedUserInfo);
