@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './EventCard.css';
+import { MapPin } from 'lucide-react';
 
 const EventCard = ({ event }) => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const EventCard = ({ event }) => {
         <p><strong>When:</strong> {event.date_time}</p>
         <p><strong>Hosted by:</strong> {event.host_name}</p>
         <div className="event-card-meta">
-          <p><i className="fas fa-map-marker-alt"></i> {event.place}</p>
+          <p><MapPin /> {event.place}</p>
           <p><i className="fas fa-users"></i> Max: {event.maxParticipants}</p>
         </div>
       </div>
