@@ -7,8 +7,8 @@ MeetSafe
 ## Contributors
 
 - Yonas Belew(yonasbelew1@gmail.com)
-- Mahlet Belay
-- Meaza Mulatu
+- Mahlet Belay (mahlet7000@gmail.com)
+- Meaza Mulatu(meazatale5@gmail.com)
 
 ---
 
